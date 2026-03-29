@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 助手</title>
+  <link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+  <div class="site">
+    <div id="app-shell"></div>
+    <main class="layout-grid">
+      <aside class="panel">
+        <h2 class="section-title">整理任务</h2>
+        <div class="field">
+          <label class="label-row" for="assistant-prompt"><span>输入指令</span></label>
+          <textarea id="assistant-prompt" placeholder="例如：请按朝代整理岭南祠堂与园林研究，并解释灰塑与借景。"></textarea>
+        </div>
+        <div class="field">
+          <label><input id="include-recent" type="checkbox" checked> 包含最近检索结果</label>
+        </div>
+        <div class="field">
+          <label><input id="include-favorites" type="checkbox" checked> 包含收藏夹偏好</label>
+        </div>
+        <div class="card-actions">
+          <button class="button button-primary" id="run-assistant" type="button">生成整合</button>
+          <a class="button button-secondary" href="./settings.html">去设置 API</a>
+        </div>
+      </aside>
+
+      <section class="content-panel">
+        <div id="assistant-output" class="field-stack">
+          <div class="card">
+            <p class="meta-row">OpenAI Responses API</p>
+            <h3>这里会显示 AI 整合结果</h3>
+            <p class="summary">如果这是第一次使用，请先到设置页填写 OpenAI API Key 和模型名称。</p>
+          </div>
+        </div>
+        <section>
+          <h2 class="section-title">最近检索到的文献上下文</h2>
+          <div id="assistant-context" class="record-grid"></div>
+        </section>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="../assets/js/assistant.js"></script>
+</body>
+</html>

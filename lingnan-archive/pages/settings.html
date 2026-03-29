@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>设置</title>
+  <link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+  <div class="site">
+    <div id="app-shell"></div>
+    <main class="content-panel" style="margin-top:22px;">
+      <form id="settings-form" class="field-stack">
+        <h2 class="section-title">接口与站点设置</h2>
+        <div class="field">
+          <label class="label-row" for="default-query"><span>默认检索词</span></label>
+          <input id="default-query">
+        </div>
+        <div class="field">
+          <label class="label-row" for="page-size"><span>每页返回条数</span></label>
+          <input id="page-size" type="number" min="5" max="30">
+        </div>
+        <div class="field">
+          <label class="label-row" for="openalex-mailto"><span>OpenAlex mailto</span><span class="helper">建议填写邮箱以进入 polite pool</span></label>
+          <input id="openalex-mailto" placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label class="label-row" for="openalex-key"><span>OpenAlex API Key</span><span class="helper">可选</span></label>
+          <input id="openalex-key" placeholder="可留空">
+        </div>
+        <div class="field">
+          <label class="label-row" for="crossref-mailto"><span>Crossref mailto</span></label>
+          <input id="crossref-mailto" placeholder="you@example.com">
+        </div>
+        <div class="card-actions">
+          <button class="button button-primary" type="submit">保存设置</button>
+          <a class="button button-secondary" href="./search.html">返回检索</a>
+        </div>
+        <p id="save-message" class="footer-note">说明：这个版本已经改成适合公开部署的结构。OpenAI key、模型名和推理强度不再保存在浏览器，而是需要在 Cloudflare Pages 的环境变量里配置。</p>
+        <div class="card small-card">
+          <p class="meta-row">公开部署时需要配置</p>
+          <p class="summary">在 Cloudflare Pages 里添加环境变量：</p>
+          <ul class="list">
+            <li><code>OPENAI_API_KEY</code></li>
+            <li><code>OPENAI_MODEL</code>，例如 <code>gpt-5-mini</code></li>
+            <li><code>OPENAI_BASE_URL</code>，默认可用 <code>https://api.openai.com/v1</code></li>
+            <li><code>OPENAI_REASONING_EFFORT</code>，例如 <code>low</code></li>
+            <li><code>OPENAI_MAX_OUTPUT_TOKENS</code>，例如 <code>1400</code></li>
+          </ul>
+        </div>
+      </form>
+    </main>
+  </div>
+  <script type="module" src="../assets/js/settings.js"></script>
+</body>
+</html>
